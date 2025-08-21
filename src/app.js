@@ -11,7 +11,6 @@ const app = express();
 // middileware
 app.use(express.json())
 app.use(cookiePaser())
-
 // routes call
 app.use("/api/auth", authRoutes)
 app.use("/api/chat", chatRoutes)
