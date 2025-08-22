@@ -95,7 +95,7 @@ function initSocketServer(httpServer) {
           content: response,
           chat: messagePayload.chat,
         });
-        
+
         const [responseMessage, responseVector] = await Promise.all([
           messageModel.create({
             chat: messagePayload.chat,
@@ -114,9 +114,8 @@ function initSocketServer(httpServer) {
             text: response,
           },
         });
-
       } catch (error) {
-        console.error("❌ Error handling AI message:", error.message);
+        console.error("❌ Error handling AI message:", error);
         socket.emit("error", {
           message: "Something went wrong, please try again.",
         });
