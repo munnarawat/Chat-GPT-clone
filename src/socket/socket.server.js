@@ -29,35 +29,43 @@ function initSocketServer(httpServer) {
   io.on("connection", (socket) => {
     socket.on("ai-message", async (messagePayload) => {
       try {
-       const userMessage =  await messageModel.create({
-          chat: messagePayload.chat,
-          user: socket.user._id,
-          content: messagePayload.content,
-          role: "user",
-        });
+        const [userMessage, vectors] = await Promise.all([
+          messageModel.create({
+            chat: messagePayload.chat,
+            user: socket.user._id,
+            content: messagePayload.content,
+            role: "user",
+          }),
+          AiResponse.generateVector(messagePayload.content),
+        ]);
 
-        const vectors = await AiResponse.generateVector(messagePayload.content);
-
-        const memory = await queryMemory({
-          queryVector:vectors,
-          limit:3,
-          metadata:{}
-        })
         await createMemory({
           vectors,
-          messageId:userMessage.id,
+          messageId: userMessage.id,
           metadata: {
             chat: messagePayload.chat,
             user: socket.user._id,
-            text:messagePayload.content,
+            text: messagePayload.content,
           },
         });
 
-        const chatHistory = (
-          await messageModel
+        const [memory, chatHistory] = await Promise.all([
+          queryMemory({
+            queryVector: vectors,
+            limit: 3,
+            metadata: {
+              user: socket.user._id,
+            },
+          }),
+          messageModel
             .find({
               chat: messagePayload.chat,
-            }).sort({ createdAt: -1 }).limit(20).lean()).reverse();
+            })
+            .sort({ createdAt: -1 })
+            .limit(20)
+            .lean()
+            .then((userMessage) => userMessage.reverse()),
+        ]);
 
         const stm = chatHistory.map((item) => {
           return {
@@ -69,41 +77,44 @@ function initSocketServer(httpServer) {
         const ltm = [
           {
             role: "user",
-            parts:[{text:`
+            parts: [
+              {
+                text: `
                these are some previous messages:
                ${memory.map((item) => item.metadata.text).join("\n")}
-              `}]
-          }
-        ]
-        console.log(ltm);
-        console.log(stm);
-        
-        
+              `,
+              },
+            ],
+          },
+        ];
+
         const response = await AiResponse.generateResponse([...ltm, ...stm]);
 
-       const responseMessage =  await messageModel.create({
-          chat: messagePayload.chat,
-          user: socket.user._id,
-          content: response,
-          role: "model",
-        });
-
-        const responseVector = await AiResponse.generateVector(response)
-
-        await createMemory({
-          vectors:responseVector,
-          messageId:responseMessage.id,
-          metadata:{
-            chat:messagePayload.chat,
-            user:socket.user._id,
-            text:response,
-          }
-        })
         // fire
         socket.emit("ai-response", {
           content: response,
           chat: messagePayload.chat,
         });
+        
+        const [responseMessage, responseVector] = await Promise.all([
+          messageModel.create({
+            chat: messagePayload.chat,
+            user: socket.user._id,
+            content: response,
+          }),
+          AiResponse.generateVector(response),
+        ]);
+
+        await createMemory({
+          vectors: responseVector,
+          messageId: responseMessage.id,
+          metadata: {
+            chat: messagePayload.chat,
+            user: socket.user._id,
+            text: response,
+          },
+        });
+
       } catch (error) {
         console.error("❌ Error handling AI message:", error.message);
         socket.emit("error", {
