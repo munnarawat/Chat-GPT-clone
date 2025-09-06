@@ -20,7 +20,7 @@ const NavSettings = ({ userInfo, settingOpen,handleLogout }) => {
   return (
     <div>
       {settingOpen && (
-        <motion.div className="w-full font-gilroy  bg-gradient-to-br from-slate-900 to-emerald-950 border border-slate-700 rounded-2xl p-3">
+        <motion.div className="w-full font-poppins  bg-gradient-to-br from-slate-900 to-emerald-950 border border-slate-700 rounded-2xl p-3">
           <div className="w-full">
             <div className="group flex w-full cursor-pointer items-center gap-2 rounded-lg px-2 p-1 transition-all duration-300 ease-in-out hover:bg-white/10 hover:translate-x-2">
               <span className="text-slate-400 group-hover:text-cyan-400 transition-colors duration-300">

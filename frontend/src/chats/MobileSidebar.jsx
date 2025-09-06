@@ -19,11 +19,11 @@ const MobileSidebar = ({
     <AnimatePresence>
       {isOpen && (
         <motion.div
-          initial={{ x: -300 }}
+          initial={{ x: -600 }}
           animate={{ x: 0 }}
-          exit={{ x: -300 }}
+          exit={{ x: -600 }}
           transition={{ type: "spring", damping: 25, stiffness: 200 }}
-          className="md:hidden fixed font-poppins left-0 top-0 h-full w-64  bg-slate-900 border-r border-slate-700/50  z-50">
+          className="lg:hidden fixed font-poppins left-0 top-0 h-full w-[65%] sm:w-[50%] md:w-[40%] bg-slate-900 border-r border-slate-700/50  z-50">
           <div className="p-4">
             <div className="flex   items-center justify-between mb-6 ">
               <h2 className="text-cyan-400   font-bold tracking-widest uppercase mb-4">
@@ -43,10 +43,9 @@ const MobileSidebar = ({
               + New Chat
             </button>
           </div>
-
           <div className="flex-1 p-4 overflow-y-auto scrlbar h-[calc(100vh-210px)]">
             {chats && chats.length > 0 ? (
-              chats.map((chat) => (
+              chats.map((chat,index) => (
                 <div
                   key={chat.id}
                   onClick={() => onSelectChat(chat.id)}
@@ -68,7 +67,7 @@ const MobileSidebar = ({
               </div>
             )}
           </div>
-          <div className=" absolute  w-full bottom-15 ">
+          <div className=" absolute  w-full bottom-20  ">
             <NavSettings
               userInfo={userInfo}
               settingOpen={settingOpen}

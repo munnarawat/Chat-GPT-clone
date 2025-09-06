@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../../store/reducer/authSlice";
 import axios from "axios";
 
-const Navbar = () => {
+const Navbar = ({toggleNavbar}) => {
   const { user } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const Navbar = () => {
             </Link>
           )}
         </div>
-        <span className="text-2xl mr-2 cursor-pointer flex md:hidden">
+        <span onClick={toggleNavbar} className="text-2xl mr-2 cursor-pointer flex md:hidden">
           <HiMenuAlt1 />
         </span>
       </div>

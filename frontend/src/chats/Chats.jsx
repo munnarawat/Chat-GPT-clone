@@ -82,7 +82,7 @@ const Chats = () => {
 
     // listen for ai response
     newSocket.on("ai-response", (data) => {
-      console.log("AI response received:", data);
+      // console.log("AI response received:", data);
       dispatch(
         addAiMessage({
           chatId: data.chat,
@@ -152,7 +152,7 @@ const Chats = () => {
           },
         }
       );
-      console.log("Message saved to database:", response.data);
+      // console.log("Message saved to database:", response.data);
 
       // Send message via socket to backend for AI processing
       if (socket) {
@@ -292,8 +292,7 @@ const Chats = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeSidebar}
-            className="md:hidden fixed inset-0 bg-black/50 z-40">
-              
+            className="lg:hidden fixed inset-0 bg-black/50 z-40">
             </motion.div>
         )}
       </AnimatePresence>
@@ -324,7 +323,7 @@ const Chats = () => {
         handleLogout={handleLogout}
       />
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col">
+      <div className="w-full flex flex-col">
         {/* chat-nav-bar */}
         <ChatNav toggleSidebar={toggleSidebar} onNewChat={handleNewChat} />
         {/* Chat Messages */}

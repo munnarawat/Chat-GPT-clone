@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Navbar from "../components/nav/Navbar";
-
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -26,7 +24,6 @@ const Login = () => {
           withCredentials: true,
         }
       );
-      console.log(response.data);
       localStorage.setItem("user",JSON.stringify(response.data.user))
       if (response.data) {
         // Login successful, redirect to chat or home page
@@ -42,7 +39,6 @@ const Login = () => {
   };
   return (
     <>
-    <Navbar/>
       <div className="min-h-screen relative overflow-hidden bg-white bg-gradient-to-br from-black via-slate-800-900 to-cyan-900 flex items-center justify-center px-4 py-12">
         {/* floating particles */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden">

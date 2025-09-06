@@ -32,14 +32,14 @@ const TypingIndicator = () => (
   </motion.div>
 );
 
-const ChatMessage = ({ messages, activeChatId, isSending }) => {
+const ChatMessage = ({ messages, activeChatId, isSending }) => {  
   return (
     <div className="flex-1 overflow-y-auto scrlbar p-4">
       <div className="space-y-6"> {/* Thoda sa vertical space badhaya */}
-        {messages.map((message) => (
+        {messages.map((message,index) => (
           <motion.div
             // POLISH 4: Using a unique message ID for the key
-            key={message.id}
+            key={index}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className={`flex ${
@@ -47,7 +47,7 @@ const ChatMessage = ({ messages, activeChatId, isSending }) => {
             }`}
           >
             <div
-              className={`max-w-[80%] md:max-w-[70%] p-4 rounded-2xl border ${
+              className={`max-w-[80%] md:max-w-[70%] p-4 rounded-2xl border break-words ${
                 message.type === "user"
                   // POLISH 1: User message with cyan gradient, border, and glow
                   ? "bg-gradient-to-br from-cyan-900/40 to-cyan-900/10 border-cyan-400/20 text-cyan-200 ml-auto shadow-lg shadow-cyan-500/10"
@@ -58,7 +58,7 @@ const ChatMessage = ({ messages, activeChatId, isSending }) => {
               <ReactMarkdown
                 rehypePlugins={[rehypeHighlight]}
                 components={{
-                  p: ({ node, ...props }) => <p {...props} className="prose max-w-none prose-invert mb-4 last:mb-0" />,
+                  p: ({ node, ...props }) => <div {...props} className="prose max-w-none prose-invert mb-4 last:mb-0" />,
                   code: ({ node, inline, ...props }) =>
                     inline ? (
                       <code {...props} className="bg-slate-700/50 px-1.5 py-0.5 rounded text-cyan-300 text-sm" />

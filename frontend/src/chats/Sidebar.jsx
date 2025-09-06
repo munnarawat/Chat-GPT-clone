@@ -17,7 +17,7 @@ const Sidebar = ({
     <motion.div
       initial={{ x: -300 }}
       animate={{ x: 0 }}
-      className="hidden md:flex flex-col font-poppins w-64 bg-slate-900 border-r border-slate-700/50 relative ">
+      className="hidden lg:flex flex-col font-poppins w-[30%] xl:w-[25%] bg-slate-900 border-r border-slate-700/50  relative ">
       <div className="mb-6 p-4">
         <h2 className="text-cyan-400 text-sm font-bold tracking-widest uppercase mb-4">
           Chat History
@@ -55,7 +55,7 @@ const Sidebar = ({
         )}
       </div>
       {/* sideSettings */}
-      <div className=" absolute  w-full bottom-15 ">
+      <div className=" absolute  w-full bottom-20 ">
         <NavSettings
           userInfo={userInfo}
           settingOpen={settingOpen}

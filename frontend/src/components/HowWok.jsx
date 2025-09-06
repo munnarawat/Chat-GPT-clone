@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 
 const HowWok = () => {
   return (
-    <section id="how" className="mx-auto  max-w-6xl px-7 lg:px-4 pb-24">
-      <h2 className="mb-8 text-3xl font-bold font-Expo sm:text-5xl  text-center">
-        <span className="bg-gradient-to-r from-purple-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">
+    <section  className=" px-7  lg:px-20 pb-24 bg-gradient-to-br from-black via-slate-900 to-cyan-900">
+      <h2 className="mb-8 text-3xl pt-10 font-bold font-Expo sm:text-5xl  text-center">
+        <span className="bg-gradient-to-r from-purple-400/60 via-cyan-400/80 to-blue-400/80 bg-clip-text text-transparent">
           How It Works
         </span>
       </h2>
+      {/* underline  */}
+      <div className="h-[1px] w-1/2 mx-auto bg-gradient-to-r from-transparent via-cyan-700 to-transparent opacity-30"></div>
       <ol className="relative border-s border-zinc-900/0 font-gilroy  ps-6 dark:border-white/20">
-        <li className="mb-10 ms-6">
+        <li className="mb-10 ms-6 mt-10">
           <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-emerald-500 text-black text-sm font-bold ring-2 ring-emerald-400">
             1
           </span>
@@ -47,10 +49,10 @@ const HowWok = () => {
           </p>
         </li>
       </ol>
-      <div className="mt-8 flex flex-col font-sora gap-3 sm:flex-row justify-center">
+      <div className="mt-8 flex font-Orbitron flex-col  gap-3 sm:flex-row justify-center">
         <Link
           to="/chats"
-          className="inline-flex  items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold bg-gradient-to-r from-emerald-400 to-emerald-300 shadow-lg shadow-emerald-500/25 transition-transform hover:-translate-y-0.5 hover:shadow-emerald-400/40">
+          className="inline-flex btn-glass shadow-cyan-500/50 shadow-lg cursor-pointer items-center justify-center rounded-lg px-5 py-3 text-md font-semibold text-white hover:-translate-y-1 transition-transform">
           Start Chatting
         </Link>
         <button className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-sm font-semibold border border-zinc-900/10 text-zinc-800 hover:bg-zinc-900/5 dark:border-white/10 dark:text-zinc-100 dark:hover:bg-white/5">

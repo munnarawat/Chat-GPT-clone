@@ -29,14 +29,14 @@ const ChatInput = ({input, activeChatId, setInput, handleSendMessage,isSending,t
           }}
           rows="1"
           placeholder="Ask anything..."
-          className="w-full resize-none scrlbar bg-gray-900/20 text-gray-100 py-3 px-6 pr-24 outline-none  transition-all duration-300 backdrop-blur-sm min-h-[50px] max-h-[150px] overflow-y-auto"
+          className="w-full resize-none scrlbar  text-gray-100 py-3 px-6 pr-24 outline-none  transition-all duration-300 backdrop-blur-sm min-h-[50px] max-h-[150px] overflow-y-auto"
         />
         <button
           type="submit"
           disabled={!input.trim() || !activeChatId || isSending}
-          className={`right-2 h-10 px-3 rounded-full bg-green-500/20 text-green-400 ${
+          className={`right-2 h-10 px-3 rounded-full bg-cyan-500/20 text-green-400 ${
             input.trim() && activeChatId && !isSending
-              ? "cursor-pointer hover:bg-green-500/30"
+              ? "cursor-pointer hover:bg-cyan-500/40"
               : "cursor-not-allowed opacity-50"
           } transition-all duration-300 flex items-center justify-center`}>
           <span>

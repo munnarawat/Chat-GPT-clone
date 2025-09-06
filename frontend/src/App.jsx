@@ -1,13 +1,37 @@
-import React from 'react'
-import AppRouter from './routers/AppRouter'
-
+import React, { useState } from "react";
+import AppRouter from "./routers/AppRouter";
+import { AnimatePresence, motion } from "framer-motion";
+import ResponsiveNav from "./components/nav/ResponsiveNav";
 
 const App = () => {
-  return (
-    <div className='w-full h-full scrlbar bg-black'>
-      <AppRouter/>
-    </div>
-  )
-}
+  const [responsiveSideBar, setResponsiveSideBar] = useState(false);
 
-export default App
+  const toggleNavbar = () => {
+    setResponsiveSideBar(!responsiveSideBar);
+  };
+  const closeNavBar = () => {
+    setResponsiveSideBar(false);
+  };
+  return (
+    <div className="w-full h-full scrlbar bg-gradient-to-br from-black via-slate-800-900 to-cyan-900">
+      <AnimatePresence>
+        {responsiveSideBar && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={closeNavBar}
+              className="md:hidden fixed inset-0 bg-black/70 z-[99]"></motion.div>
+
+              <ResponsiveNav closeMenu={closeNavBar} />
+          </>
+          
+        )}
+      </AnimatePresence>
+      <AppRouter toggleNavbar={toggleNavbar} />
+    </div>
+  );
+};
+
+export default App;

@@ -98,7 +98,7 @@ const Hero = ({ handleGetStarted }) => {
           <button
             onClick={handleGetStarted}
             className="inline-flex btn-glass shadow-cyan-500/50 shadow-lg cursor-pointer items-center justify-center rounded-lg px-5 py-3 text-md font-semibold text-white hover:-translate-y-1 transition-transform">
-            Get Statred
+            Get Started
           </button>
           <button className="inline-flex items-center justify-center rounded-lg px-5 py-3 text-md font-semibold border border-white/10 text-zinc-100 hover:bg-white/5 transition-colors">
             Learn More

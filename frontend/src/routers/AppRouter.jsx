@@ -1,25 +1,29 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import Login from '../pages/Login'
-import Register from '../pages/Register'
-import Chats from '../chats/Chats'
-import ProtectedRoute from '../auth/ProtectedRoute'
+import { Route, Routes } from "react-router-dom";
+import Home from "../pages/Home";
+import Login from "../pages/Login";
+import Register from "../pages/Register";
+import Chats from "../chats/Chats";
+import ProtectedRoute from "../auth/ProtectedRoute";
+import Layout from "../layout/Layout";
 
-const AppRouter = () => {
+const AppRouter = ({toggleNavbar}) => {
   return (
     <Routes>
-        <Route path='/' element={<Home/>} />
-        <Route path='/login' element={<Login/>}>
-          
-        </Route>
-        <Route path='/register' element={<Register/>} />
-        <Route path='/chats' element={
+      <Route path="/" element={<Layout toggleNavbar={toggleNavbar} />}>
+        <Route index element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+      <Route
+        path="/chats"
+        element={
           <ProtectedRoute>
-            <Chats/>
+            <Chats />
           </ProtectedRoute>
-        } />
+        }
+      />
     </Routes>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

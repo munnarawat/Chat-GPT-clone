@@ -5,7 +5,51 @@ import security from "../../src/images/Security.png";
 import speed from "../../src/images/Speed.png";
 import chatbot from "../../src/images/chatbot.png";
 
-const AdvanceFeatures = ({Features}) => {
+const AdvanceFeatures = () => {
+  const Features = [
+    {
+      image: chatbot,
+      title: "Smart AI Conversations",
+      description:
+        "Experience intelligent conversations with our advanced AI that understands context and provides meaningful responses in real-time.",
+      buttonText: "Start Chat",
+    },
+    {
+      image: multiLang,
+      title: "Multilingual Support",
+      description:
+        "Break language barriers with our AI that supports multiple languages and provides seamless translation capabilities.",
+      buttonText: "Explore Languages",
+    },
+    {
+      image: brain,
+      title: "Context Awareness",
+      description:
+        "Our AI remembers conversation context and provides coherent, relevant responses throughout your entire interaction.",
+      buttonText: "Learn More",
+    },
+    {
+      image: security,
+      title: "Security & Privacy",
+      description:
+        "Your conversations are protected with enterprise-grade encryption and privacy controls you can trust.",
+      buttonText: "Security Info",
+    },
+    {
+      image: speed,
+      title: "Speed & Performance",
+      description:
+        "Lightning-fast responses powered by optimized AI models that deliver results in milliseconds.",
+      buttonText: "Test Speed",
+    },
+    {
+      image: brain,
+      title: "Analytics & Insights",
+      description:
+        "Get detailed analytics and insights about your AI interactions to optimize your workflow.",
+      buttonText: "View Analytics",
+    },
+  ];
   return (
     <div
       id="features"
@@ -28,7 +72,6 @@ const AdvanceFeatures = ({Features}) => {
             for modern applications
           </p>
         </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Features.map((feature, index) => (
             <div
