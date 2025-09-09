@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import logo from "../images/logo.png";
 const Register = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
@@ -51,6 +52,10 @@ const Register = () => {
         {/* form card */}
         <div className="relative w-full max-w-xl">
           <div className="absolute -inset-0.5 rounded-3xl bg-gradient-to-r from-emerald-500/20 via-emerald-400/10 to-emerald-500/20 blur-2xl animate-gradient opacity-70" />
+          {/* logo */}
+          <div className="logo absolute -top-8 md:-top-10 z-[999] left-1/2 -translate-x-1/2">
+            <img className=" w-24 md:w-32" src={logo} alt="logo" />
+          </div>
           <div className="relative rounded-3xl glass-form border border-emerald-400/20 p-8 md:p-10">
             <div className="mb-8 text-center">
               <h1 className="text-3xl md:text-4xl font-Expo font-bold  ">
@@ -191,7 +196,9 @@ const Register = () => {
               {error && (
                 <p className="text-red-500 text-sm text-center mb-4">{error}</p>
               )}
-              <button type="submit" className="neon-button font-Exp cursor-pointer w-full">
+              <button
+                type="submit"
+                className="neon-button font-Exp cursor-pointer w-full">
                 <span className="relative z-10">Register</span>
                 <span className="button-sheen" />
               </button>

@@ -13,7 +13,7 @@ const App = () => {
     setResponsiveSideBar(false);
   };
   return (
-    <div className="w-full h-full scrlbar bg-gradient-to-br from-black via-slate-800-900 to-cyan-900">
+    <div className="w-full h-full relative bg-gradient-to-br from-black via-slate-900 to-cyan-900">
       <AnimatePresence>
         {responsiveSideBar && (
           <>

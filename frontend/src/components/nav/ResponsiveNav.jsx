@@ -64,7 +64,7 @@ const ResponsiveNav = ({ closeMenu }) => {
           animate="visible"
           className="links w-full mt-14 flex flex-col gap-8 font-Expo px-4 py-2">
           <MotionLink
-            to="/Features"
+            to="/#features"
             variants={linkVariant}
             whileHover={{ x: 20, color: "#FDFFB8" }}
             onClick={closeMenu}
@@ -72,7 +72,7 @@ const ResponsiveNav = ({ closeMenu }) => {
             Features
           </MotionLink>
           <MotionLink
-            to="/work"
+            to="/#howitworks"
             variants={linkVariant}
             whileHover={{ x: 20, color: "#FDFFB8" }}
             onClick={closeMenu}
@@ -80,7 +80,7 @@ const ResponsiveNav = ({ closeMenu }) => {
             How it Works
           </MotionLink>
           <MotionLink
-            to="/Pricing"
+            to="/#pricing"
             variants={linkVariant}
             whileHover={{ x: 20, color: "#FDFFB8" }}
             onClick={closeMenu}

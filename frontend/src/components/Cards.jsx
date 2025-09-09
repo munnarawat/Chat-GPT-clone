@@ -4,6 +4,7 @@ import developer from "../images/ai-developer.png";
 import marketers from "../images/ai-marketers.png";
 import Businesses from "../images/Businesses.png";
 import Content from "../images/Content-Creators.png";
+import LettersPullUp from "../animation/LettersPullUp";
 // STEP 1: Customize this array with your features.
 const Features = [
   {
@@ -35,7 +36,6 @@ const Features = [
     media: Businesses,
   },
 ];
-
 // Helper component for a single card
 const FeatureCard = ({ feature, i, progress, range }) => {
   // useTransform hook scroll progress ko opacity aur scale mein convert karega
@@ -43,7 +43,6 @@ const FeatureCard = ({ feature, i, progress, range }) => {
   const scale = useTransform(progress, range, [0.8, 1, 1, 0.8]);
   const rotateX = useTransform(progress, range, [30, 0, 0, -30]);
   const x = useTransform(progress, range, ["50%", "0%", "0%", "-50%"]);
-
   return (
     <motion.div
       style={{
@@ -70,11 +69,10 @@ const FeatureCard = ({ feature, i, progress, range }) => {
       <h3 className="text-3xl font-bold mt-6 mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent ">
         {feature.title}
       </h3>
-      <p className="text-slate-300 max-w-md mx-auto">{feature.description}</p>
+      <p className="text-slate-300 tracking-tight max-w-md mx-auto">{feature.description}</p>
     </motion.div>
   );
 };
-
 // Main component
 const Cards = () => {
   const targetRef = useRef(null);
@@ -83,26 +81,42 @@ const Cards = () => {
     target: targetRef,
     offset: ["start start", "end end"], // Animation start se end tak chalega
   });
-  // const background = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.33, 0.66, 1],
-  //   ["#000308", "#042633", "#093748", "#104C62"]
-  // );
-
+  // amimtion
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        // delayChildren: 0.5,
+      },
+    },
+  };
+    const childVariant = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15,
+        delay: 0.7,
+      },
+    },
+  };
   return (
     <section ref={targetRef} className="relative futuristic-background  w-full h-[500vh]">
       {/* Yeh div screen par chipka rahega */}
-      <div className="text-center mb-16">
-        <h2 className="text-3xl md:text-5xl font-bold font-Expo mb-6 py-5">
-          <span className="bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent tracking-tighter">
-            Use Cases / Benefits
-          </span>
-        </h2>
-        <p className="text-lg lg:px-10 text-slate-300-300 font-poppins max-w-2xl mx-auto">
-          Experience the future of AI with our cutting-edge features designed
-          for modern applications
-        </p>
-      </div>
+      <motion.div variants={containerVariant} initial="hidden" whileInView="visible" 
+       viewport={{once:true, amount:0.1}} className="text-center mb-16">
+        <div className="font-bold font-Expo mb-6 py-5">
+          <LettersPullUp text="Use Cases / Benefits" className='bg-gradient-to-r from-green-400 via-teal-500 to-cyan-500 bg-clip-text text-transparent text-4xl md:text-5xl  tracking-tighter'/>
+        </div>
+        <motion.p variants={childVariant} className="  md:text-lg lg:px-10 text-slate-300-300 font-poppins px-8 sm:max-w-xl lg:max-w-2xl mx-auto ">
+          Go beyond features and focus on outcomes. See how MinDora boosts productivity, simplifies complex tasks, and provides actionable insights for your specific needs.
+        </motion.p>
+      </motion.div>
       <motion.div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
         {Features.map((feature, i) => {
           // Har card ke liye scroll range define karein

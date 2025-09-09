@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import Mindora from "../videos/mindora.mp4";
 import ai from "../images/ai-girl.png";
-import LettersPullUp from "./LettersPullUp";
+import LettersPullUp from "../animation/LettersPullUp";
 
 const Hero = ({ handleGetStarted }) => {
   const containerVariant = {

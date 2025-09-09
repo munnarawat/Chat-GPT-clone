@@ -34,7 +34,7 @@ const TypingIndicator = () => (
 
 const ChatMessage = ({ messages, activeChatId, isSending }) => {  
   return (
-    <div className="flex-1 overflow-y-auto scrlbar p-4">
+    <div data-lenis-prevent  className="flex-1 overflow-y-auto scrlbar p-4">
       <div className="space-y-6"> {/* Thoda sa vertical space badhaya */}
         {messages.map((message,index) => (
           <motion.div
