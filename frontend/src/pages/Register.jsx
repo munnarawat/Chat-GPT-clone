@@ -14,7 +14,7 @@ const Register = () => {
   const registerHandler = async (data) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
+        "https://mindora-f1yl.onrender.com/api/auth/register",
         {
           fullName: {
             firstName: data.firstName,

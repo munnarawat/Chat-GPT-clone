@@ -16,7 +16,7 @@ const Login = () => {
   const loginHandler = async (data) => {
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/login",
+        "https://mindora-f1yl.onrender.com/api/auth/login",
         {
           email: data.email,
           password: data.password,

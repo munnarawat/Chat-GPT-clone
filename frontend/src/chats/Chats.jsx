@@ -47,7 +47,7 @@ const Chats = () => {
   useEffect(() => {
     const loadChats = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/chat", {
+        const response = await axios.get("https://mindora-f1yl.onrender.com/api/chat", {
           withCredentials: true,
         });
         const chatsData = Array.isArray(response.data.chats)
@@ -70,7 +70,7 @@ const Chats = () => {
   }, []);
   // Socket.IO connection
   useEffect(() => {
-    const newSocket = io("http://localhost:3000", {
+    const newSocket = io("https://mindora-f1yl.onrender.com", {
       withCredentials: true,
       transports: ["websocket", "polling"],
       timeout: 20000,
@@ -140,7 +140,7 @@ const Chats = () => {
     try {
       // Save user message to database first
       const response = await axios.post(
-        `http://localhost:3000/api/chat/messages/${activeChatId}`,
+        `https://mindora-f1yl.onrender.com/api/chat/messages/${activeChatId}`,
         {
           message: messageText,
           timestamp: new Date().toISOString(),
@@ -176,7 +176,7 @@ const Chats = () => {
   const getMessage = async (chatId) => {
     try {
       const response = await axios.get(
-        `http://localhost:3000/api/chat/messages/${chatId}`,
+        `https://mindora-f1yl.onrender.com/api/chat/messages/${chatId}`,
         { withCredentials: true }
       );
       // console.log("fetching messages:", response.data,messages);
@@ -200,7 +200,7 @@ const Chats = () => {
   //  get username fetch
   const GetUserName = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/auth/user", {
+      const response = await axios.get("https://mindora-f1yl.onrender.com/api/auth/user", {
         withCredentials: true,
       });
       setUserInfo(response.data.user);
@@ -219,7 +219,7 @@ const Chats = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/chat",
+        "https://mindora-f1yl.onrender.com/api/chat",
         { title: chatTitle },
         { withCredentials: true }
       );
@@ -258,7 +258,7 @@ const Chats = () => {
 //   handleLogout
   const handleLogout = async ()=> {
      try {
-       await axios.post("http://localhost:3000/api/auth/logOut",{}, {withCredentials:true})
+       await axios.post("https://mindora-f1yl.onrender.com/api/auth/logOut",{}, {withCredentials:true})
        console.log("logOut succefully");
        navigate('/login')
        

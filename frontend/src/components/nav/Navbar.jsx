@@ -13,7 +13,7 @@ const Navbar = ({toggleNavbar}) => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/api/auth/logOut",
+        "https://mindora-f1yl.onrender.com/api/auth/logOut",
         {},
         { withCredentials: true }
       );
