@@ -53,6 +53,7 @@ const Hero = ({ handleGetStarted }) => {
           className="w-full h-full object-cover"
           src={ai}
           alt="Ai BackGround "
+          loading="lazy"
         />
         {/*  HOLOGRAPHIC CARD  */}
         <div
@@ -61,7 +62,6 @@ const Hero = ({ handleGetStarted }) => {
                      bg-cyan-900/20 backdrop-blur-sm 
                      shadow-2xl shadow-cyan-500/40
                      overflow-hidden"
-          // Step 3: 3D effect
           style={{
             transform:
               "translate(-50%, -50%) perspective(1000px) rotateY(-25deg) rotateX(10deg)",
@@ -70,8 +70,8 @@ const Hero = ({ handleGetStarted }) => {
           <video
             className=" absolute top-0 left-0 w-full h-full object-cover"
             autoPlay loop muted playsInline>
-              <source src={MindoraVid} type="video/webm" />
-              <source src={Mindora} type="video/mp4" />
+              <source src={MindoraVid} type="video/webm"/>
+              <source src={Mindora} type="video/mp4"/>
                Your browser does not support the video tag.
             </video>
         </div>

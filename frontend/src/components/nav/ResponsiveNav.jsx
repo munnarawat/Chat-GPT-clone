@@ -49,7 +49,7 @@ const ResponsiveNav = ({ closeMenu }) => {
         {/* logo and close  */}
         <div className="w-full   flex items-center justify-between ">
           <Link to="/" onClick={closeMenu}>
-            <img className="w-24 object-cover" src={logo} alt="" />
+            <img className="w-24 object-cover" src={logo} alt="logo" loading="lazy" />
           </Link>
           <button
             onClick={closeMenu}

@@ -63,6 +63,7 @@ const FeatureCard = ({ feature, i, progress, range }) => {
         <img
           src={feature.media}
           alt={feature.title}
+          loading="lazy"
           className="max-w-full max-h-full object-contain rounded-lg shadow-2xl"
         />
       </div>

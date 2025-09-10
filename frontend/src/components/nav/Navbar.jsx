@@ -29,7 +29,7 @@ const Navbar = ({toggleNavbar}) => {
     <nav className="sticky top-0 z-[9999] w-full border-b   border-white/5  backdrop-blur ">
       <div className="mx-auto  flex max-w-6xl items-center justify-between px-2 py-0.5">
         <Link to="/" className="flex items-center gap-2">
-          <img className="w-24" src={logo} alt="" />
+          <img loading="lazy" className="w-24" src={logo} alt="logo" />
         </Link>
         <div className="md:flex items-center hidden gap-2 sm:gap-4 font-Expo">
           <Link to='/#features' className=" rounded-2xl px-5 py-2 text-md font-medium text-zinc-700 hover:bg-zinc-900/5 dark:text-zinc-200 dark:hover:bg-white/5 hover:scale-105 duration-300 ">

@@ -172,6 +172,7 @@ const AdvanceFeatures = () => {
                     <img
                       src={feature.image}
                       alt={feature.title}
+                      loading="lazy"
                       className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
