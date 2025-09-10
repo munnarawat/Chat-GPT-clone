@@ -283,7 +283,7 @@ const Chats = () => {
   };
 
   return (
-    <div className="flex h-screen bg-gradient-to-br from-slate-900 via-black to-purple-900/20 overflow-hidden">
+    <div className="flex h-[100dvh] bg-gradient-to-br from-slate-900 via-black to-purple-900/20 overflow-hidden">
       {/* mobile overlay */}
       <AnimatePresence>
         {isSidebarOpen && (
