@@ -1,9 +1,7 @@
-import React from "react";
-import logo from "../images/logo.png";
-import instagram from "../images/instagram.png";
-import x from "../images/x.png";
-import github from "../images/github.png";
-import linkedin from "../images/linkedin.png";
+import instagram from "../images/instagram.webp";
+import x from "../images/x.webp";
+import github from "../images/github.webp";
+import linkedin from "../images/linkedin.webp";
 import LettersPullUp from "../animation/LettersPullUp";
 import { motion } from "framer-motion";
 
@@ -14,7 +12,7 @@ const Footer = () => {
     { url: github, socialLink: "https://github.com/munnarawat" },
     {
       url: linkedin,
-      socialLink: "www.linkedin.com/in/manoj-singh-rawat-3062a4268",
+      socialLink: "https://www.linkedin.com/in/manoj-singh-rawat-3062a4268",
     },
   ];
   const containerVariant = {

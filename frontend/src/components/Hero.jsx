@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Mindora from "../videos/mindora.mp4";
-import ai from "../images/ai-girl.png";
+import MindoraVid from "../videos/mindora.mp4";
+import ai from "../images/ai-girl.webp";
 import LettersPullUp from "../animation/LettersPullUp";
 
 const Hero = ({ handleGetStarted }) => {
@@ -68,11 +69,11 @@ const Hero = ({ handleGetStarted }) => {
           {/* videos */}
           <video
             className=" absolute top-0 left-0 w-full h-full object-cover"
-            src={Mindora}
-            autoPlay
-            loop
-            muted
-            playsInline></video>
+            autoPlay loop muted playsInline>
+              <source src={MindoraVid} type="video/webm" />
+              <source src={Mindora} type="video/mp4" />
+               Your browser does not support the video tag.
+            </video>
         </div>
       </motion.div>
       <motion.div

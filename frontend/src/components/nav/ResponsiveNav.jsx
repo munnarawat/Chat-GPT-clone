@@ -1,5 +1,5 @@
 import { animate, AnimatePresence, motion, scale } from "framer-motion";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.webp";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";

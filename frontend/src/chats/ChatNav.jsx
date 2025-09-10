@@ -1,7 +1,7 @@
 import { FiEdit } from "react-icons/fi";
 import { HiOutlineMenuAlt2, HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import logo from "../images/logo.png";
+import logo from "../images/logo.webp";
 
 const ChatNav = ({ toggleSidebar, onNewChat }) => {
   return (
@@ -12,7 +12,7 @@ const ChatNav = ({ toggleSidebar, onNewChat }) => {
           className="flex lg:hidden text-2xl cursor-pointer text-slate-400 hover:text-cyan-400 transition-colors">
           <HiOutlineMenuAlt2 />
         </button>
-        <Link to="/" className="logo-chat w-20">
+        <Link to="/chats" className="logo-chat w-20">
           <img className="w-full object-contain " src={logo} alt="" />
         </Link>
       </div>

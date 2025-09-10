@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../images/logo.png";
+import logo from "../../images/logo.webp";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../../store/reducer/authSlice";

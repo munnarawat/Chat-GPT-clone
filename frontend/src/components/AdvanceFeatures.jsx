@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import brain from "../../src/images/brain.png";
-import multiLang from "../../src/images/Multi-lang.png";
-import security from "../../src/images/Security.png";
-import speed from "../../src/images/Speed.png";
-import chatbot from "../../src/images/chatbot.png";
+import brain from "../../src/images/brain.webp";
+import multiLang from "../../src/images/Multi-lang.webp";
+import security from "../../src/images/Security.webp";
+import speed from "../../src/images/Speed.webp";
+import chatbot from "../../src/images/chatbot.webp";
 import { motion } from "framer-motion";
 import LettersPullUp from "../animation/LettersPullUp";
 const AdvanceFeatures = () => {
@@ -139,9 +139,10 @@ const AdvanceFeatures = () => {
         </motion.div>
         <motion.div
           variants={containerVariant}
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
           initial="hidden"
-          whileInView="visible"
+          animate={isMobile ? "visible" : undefined}
+          whileInView={isMobile ? undefined : "visible"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Features.map((feature, index) => {
             const direction = isMobile ? "middle":

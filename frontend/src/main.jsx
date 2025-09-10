@@ -5,7 +5,12 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store.js";
 import SmoothScrolling from "./animation/SmoothScrolling.jsx";
+import { registerSW } from "virtual:pwa-register";
 
+registerSW({
+  onNeedRefresh() {},
+  onOfflineReady() {},
+})
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>

@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import developer from "../images/ai-developer.png";
-import marketers from "../images/ai-marketers.png";
-import Businesses from "../images/Businesses.png";
-import Content from "../images/Content-Creators.png";
+import developer from "../images/ai-developer.webp";
+import marketers from "../images/ai-marketers.webp";
+import Businesses from "../images/Businesses.webp";
+import Content from "../images/Content-Creators.webp";
 import LettersPullUp from "../animation/LettersPullUp";
 // STEP 1: Customize this array with your features.
 const Features = [
@@ -69,7 +69,7 @@ const FeatureCard = ({ feature, i, progress, range }) => {
       <h3 className="text-3xl font-bold mt-6 mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent ">
         {feature.title}
       </h3>
-      <p className="text-slate-300 tracking-tight max-w-md mx-auto">{feature.description}</p>
+      <p className="text-slate-300 text-sm sm:text-base tracking-tight max-w-md mx-auto">{feature.description}</p>
     </motion.div>
   );
 };
