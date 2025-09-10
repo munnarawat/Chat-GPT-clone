@@ -46,7 +46,7 @@ const Home = () => {
         </Element>
         {/* plan */}
         <Element name="pricing">
-          <PriceSection />
+          <PriceSection handleGetStarted={handleGetStarted} />
         </Element>
       </div>
       <Footer />

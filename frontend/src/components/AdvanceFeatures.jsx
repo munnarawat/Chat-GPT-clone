@@ -56,7 +56,7 @@ const AdvanceFeatures = () => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.10,
         // delayChildren: 0.5,
       },
     },

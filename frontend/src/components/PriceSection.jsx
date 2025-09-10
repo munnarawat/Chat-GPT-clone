@@ -17,7 +17,7 @@ const CheckIcon = ({ className }) => (
   </svg>
 );
 
-const PriceSection = () => {
+const PriceSection = ({handleGetStarted}) => {
   const [isYearly, setIsYearly] = useState(false);
 
   const plans = [
@@ -33,6 +33,7 @@ const PriceSection = () => {
       ],
       isPopular: false,
       glowColor: "#38bdf8",
+      action: handleGetStarted,
     },
     {
       name: "Plus plan",
@@ -47,6 +48,8 @@ const PriceSection = () => {
       ],
       isPopular: true,
       glowColor: "#a855f7",
+      action: ()=> console.log("Plus plan")
+      
     },
     {
       name: "Pro plan",
@@ -61,6 +64,8 @@ const PriceSection = () => {
       ],
       isPopular: false,
       glowColor: "#f59e0b",
+      action: ()=> console.log("pro plan")
+      
     },
   ];
 
@@ -168,6 +173,7 @@ const PriceSection = () => {
               ))}
             </ul>
             <motion.button
+             onClick={plan.action}
               whileTap={{ scale: 0.8 }}
               className={`w-full bg-gradient-to-r from-cyan-500 to-emerald-500 text-slate-900  mt-8 font-Orbitron py-3 px-6 text-base font-semibold rounded-full overflow-hidden border-white/20 transition-all transform hover:scale-105 border ${
                 // Hover effect updated

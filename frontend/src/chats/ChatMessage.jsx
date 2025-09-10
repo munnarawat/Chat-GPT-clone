@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
@@ -46,7 +46,12 @@ const TypingIndicator = () => (
 
 const ChatMessage = ({ messages, activeChatId, isSending }) => {
   const [copiedId, setCopiedId] = useState(null);
-
+   const messagesEndRef = useRef(null);
+    
+  //  auto-scroll to bottom when messages change 
+  useEffect(()=>{
+    messagesEndRef.current?.scrollIntoView({behavior:"smooth"})
+  },[messages,isSending])
   const handleCopy = async (text, id) => {
     try {
       await navigator.clipboard.writeText(text);
@@ -122,6 +127,8 @@ const ChatMessage = ({ messages, activeChatId, isSending }) => {
           </motion.div>
         ))}
         {isSending && <TypingIndicator />}
+        {/* auto scroll */}
+        <div ref={messagesEndRef}/>
         {messages.length === 0 && !isSending && (
           <div className="flex items-center justify-center h-[50vh]">
             <div className="text-center text-slate-500">
